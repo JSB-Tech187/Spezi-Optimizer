@@ -1,148 +1,64 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spezi Optimizer – Download</title>
-  <meta name="description" content="Spezi Optimizer – mehr FPS, stabileres Gameplay & smoothe Tweaks im lila Neon-Style." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spezi Optimizer Download</title>
   <style>
-    :root {
-      --bg: #0a0010;
-      --violet: #a64dff;
-      --violet-dark: #8000ff;
-      --text: #e6ccff;
-      --discord: #5865F2;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body {
-      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
-      color: var(--text); background: var(--bg); text-align: center; overflow-x: hidden; overflow-y: auto;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f4f8;
     }
-    /* Hintergrund-Canvas */
-    canvas#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; background: var(--bg); }
 
-    header { padding: 54px 16px 24px; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 0; color: #c77dff; text-shadow: 0 0 15px var(--violet), 0 0 30px var(--violet-dark); animation: glow 2s ease-in-out infinite alternate; }
-    @keyframes glow { from { text-shadow: 0 0 10px var(--violet); } to { text-shadow: 0 0 25px #c77dff, 0 0 40px var(--violet-dark); } }
+    .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-    .container { max-width: 920px; margin: 0 auto; padding: 0 20px 60px; }
+    h1 {
+      color: #1E40AF;
+      margin-bottom: 30px;
+    }
 
     .cta {
-      display: inline-block; margin: 28px 0 22px; padding: 20px 48px; font-size: 1.35rem; font-weight: 800; letter-spacing: .3px;
-      color: #fff; text-decoration: none; border-radius: 999px; border: 0;
-      background: linear-gradient(90deg, var(--violet), var(--violet-dark), var(--violet));
-      box-shadow: 0 0 22px var(--violet);
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      display: inline-block;
+      padding: 16px 32px;
+      background-color: #1E40AF;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.3s;
+      animation: pulse 2s infinite;
     }
-    .cta:hover { transform: scale(1.07); box-shadow: 0 0 36px #c77dff, 0 0 60px var(--violet-dark); filter: brightness(1.06); }
 
-    .sub { opacity: .9; font-size: .95rem; margin-top: 6px; }
-
-    .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 28px; }
-    .card {
-      background: rgba(166, 77, 255, 0.08);
-      border: 1px solid rgba(166, 77, 255, 0.25);
-      border-radius: 20px; padding: 18px 18px 16px; text-align: left;
-      box-shadow: 0 0 18px rgba(166,77,255,.12);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    .cta:hover {
+      background-color: #2563EB;
+      transform: scale(1.1);
     }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(166,77,255,.22); background: rgba(166, 77, 255, 0.12); }
-    .card h3 { margin: 0 0 8px; color: #d7a6ff; }
-    .card p { margin: 0; line-height: 1.55; }
 
-    .desc { max-width: 780px; margin: 20px auto 8px; line-height: 1.7; text-shadow: 0 0 6px #2a0055; }
-
-    .discord {
-      display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; padding: 12px 22px; border-radius: 999px; color: #fff;
-      background: var(--discord); text-decoration: none; box-shadow: 0 0 16px var(--discord);
-      transition: transform .18s ease, box-shadow .18s ease; font-weight: 700;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.7); }
+      70% { box-shadow: 0 0 20px 10px rgba(30, 64, 175, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(30, 64, 175, 0); }
     }
-    .discord:hover { transform: translateY(-1px) scale(1.03); box-shadow: 0 0 26px #7289da; }
-
-    footer { opacity: .7; font-size: .85rem; padding: 28px 0 40px; }
-    code.snip { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); padding: 2px 6px; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <!-- ✏️ EDIT: Trage unten deinen GitHub-Namen, den Release-Tag und den EXE-Dateinamen ein -->
-  <!-- Beispiel: https://github.com/Levin/spezi-optimizer/releases/download/v1.0/SpeziOptimizer.exe -->
-  <canvas id="bg"></canvas>
-  <header>
-    <h1>Spezi Optimizer</h1>
-    <p class="desc">Mehr FPS, stabileres Gameplay und ein smoother Look – alles im lila Neon-Style.
-      <br />Ein-Klick-Tweaks, gestreckte Resolutions & cleane UI.</p>
-    <a id="dl" class="cta" href="https://github.com/DEINNAME/spezi-optimizer/releases/download/v1.0/SpeziOptimizer.exe">⬇ Download Spezi Optimizer</a>
-    <div class="sub">Falls der Download nicht startet, prüfe den Release-Link in <code class="snip">index.html</code>.</div>
-  </header>
-
-  <main class="container">
-    <section class="grid">
-      <article class="card">
-        <h3>🔧 Ein-Klick Tweaks</h3>
-        <p>Aktiviere Low Latency, GPU Scheduling & mehr direkt aus der App – sicher und schnell.</p>
-      </article>
-      <article class="card">
-        <h3>🖥️ Stretched Resolutions</h3>
-        <p>Wähle aus 5 Presets: von <b>Potato (800×600)</b> bis Pro-Res wie <b>1440×1080</b> & <b>1720×1080</b>.</p>
-      </article>
-      <article class="card">
-        <h3>⚡ Sofort spürbar</h3>
-        <p>Saubere, rücksetzbare Änderungen an <i>GameUserSettings.ini</i> & Windows-Optionen – ohne Bloat.</p>
-      </article>
-      <article class="card">
-        <h3>🟣 Neon‑Style</h3>
-        <p>Moderner lila RGB‑Look mit sanften Glows & Micro‑Animations.</p>
-      </article>
-    </section>
-
-    <a class="discord" href="https://discord.gg/DEIN-DISCORD" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.369A19.91 19.91 0 0016.558 3c-.2.364-.43.852-.589 1.232a18.27 18.27 0 00-4.021 0A12.3 12.3 0 0011.36 3c-1.322.253-2.633.62-3.9 1.104C3.45 8.66 2.67 12.82 3.027 16.932A13.24 13.24 0 007.17 18.9c.31-.426.586-.88.823-1.357-.451-.168-.884-.374-1.295-.614.108-.079.214-.162.316-.248a13.1 13.1 0 007.972 0c.103.086.209.169.316.248-.41.24-.844.446-1.295.614.237.477.513.931.823 1.357a13.24 13.24 0 004.143-1.969c.338-3.907-.393-8.031-2.856-12.214ZM9.67 14.51c-.79 0-1.439-.732-1.439-1.635 0-.902.636-1.635 1.438-1.635.802 0 1.451.733 1.44 1.635 0 .903-.638 1.635-1.44 1.635Zm4.66 0c-.8 0-1.44-.732-1.44-1.635 0-.902.64-1.635 1.44-1.635.801 0 1.44.733 1.44 1.635 0 .903-.64 1.635-1.44 1.635Z" fill="#fff"/></svg>
-      Support auf Discord
+  <div class="container">
+    <h1>Spezi Optimizer herunterladen</h1>
+    <a class="cta" href="https://github.com/JSB-Tech187/Spezi-Optimizer/releases/download/v1.0/spezi.optimizer.exe" download>
+      ⬇ Download Spezi Optimizer
     </a>
-  </main>
-
-  <footer>
-    <p>© <span id="year"></span> Spezi Optimizer • Made for Performance</p>
-  </footer>
-
-  <script>
-    // Jahr
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // 🔮 Animierter Neon-Hintergrund (Linien)
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
-    addEventListener('resize', resize, { passive: true });
-    resize();
-
-    const LINES = 42;
-    const lines = Array.from({ length: LINES }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      dx: (Math.random() - 0.5) * 1.3,
-      dy: (Math.random() - 0.5) * 1.3,
-      len: Math.random() * 120 + 70,
-      hue: 275 + Math.random() * 20 // lila Bereich
-    }));
-
-    function tick(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      lines.forEach(l => {
-        ctx.beginPath();
-        const grad = ctx.createLinearGradient(l.x, l.y, l.x + l.len * l.dx, l.y + l.len * l.dy);
-      grad.addColorStop(0, `hsla(${l.hue}, 90%, 70%, .55)`);
-      grad.addColorStop(1, `hsla(${l.hue+10}, 95%, 60%, .25)`);
-        ctx.strokeStyle = grad; ctx.lineWidth = 2; ctx.shadowBlur = 22; ctx.shadowColor = `hsla(${l.hue}, 90%, 65%, .9)`;
-        ctx.moveTo(l.x, l.y); ctx.lineTo(l.x + l.len * l.dx, l.y + l.len * l.dy); ctx.stroke();
-        l.x += l.dx; l.y += l.dy;
-        if (l.x < 0 || l.x > canvas.width) l.dx *= -1;
-        if (l.y < 0 || l.y > canvas.height) l.dy *= -1;
-      });
-      requestAnimationFrame(tick);
-    }
-    tick();
-  </script>
+  </div>
 </body>
 </html>
